@@ -1,0 +1,5 @@
+{
+  "name": "BundesDomainChecker",
+  "description": "Eine Chrome-Erweiterung zur Überprüfung, ob die aktuelle Webseite eine offizielle Domain der deutschen Bundesregierung ist, basierend auf der Liste 'Geheimsache Domains'.",
+  "requestFramePermissions": []
+}

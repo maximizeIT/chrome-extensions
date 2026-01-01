@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "BundesDomainChecker",
+  "version": "1.0.0",
+  "description": "Überprüft, ob die aktuelle Webseite eine offizielle Domain der deutschen Bundesregierung ist.",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "BundesDomainChecker"
+  },
+  "icons": {
+    "16": "icon16.svg",
+    "48": "icon48.svg",
+    "128": "icon128.svg"
+  }
+}

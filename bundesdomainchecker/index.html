@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BundesDomainChecker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        width: 350px;
+        height: 500px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50">
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-title-group">
+          <div class="flag-icon">
+             <div class="flag-stripe flag-black"></div>
+             <div class="flag-stripe flag-red"></div>
+             <div class="flag-stripe flag-gold"></div>
+          </div>
+          <h1 class="header-title">BundesDomainChecker</h1>
+        </div>
+        <div class="version-badge">v1.0</div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="app-main">
+        
+        <!-- Loading State -->
+        <div id="state-loading" class="loading-container">
+          <svg class="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+          <p class="loading-text">Domain wird überprüft...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="state-error" class="error-container hidden">
+          <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          <h2 class="error-title">Überprüfung nicht möglich</h2>
+          <p class="error-text">Die URL des aktuellen Tabs konnte nicht gelesen werden.</p>
+        </div>
+
+        <!-- Valid State -->
+        <div id="state-valid" class="status-container status-valid hidden">
+          <div class="status-icon-circle">
+            <svg class="status-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h2 class="status-title">Offizielle Domain</h2>
+          <p class="status-desc">
+            Diese Domain gehört offiziell zur deutschen Bundesregierung.
+          </p>
+          
+          <div class="details-box">
+            <p class="detail-label">Aktueller Host</p>
+            <p id="valid-host" class="detail-value">--</p>
+            
+            <div class="detail-divider">
+               <p class="detail-label">Gefundener Eintrag</p>
+               <p id="valid-match" class="detail-value matched">--</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invalid State -->
+        <div id="state-invalid" class="status-container status-invalid hidden">
+          <div class="status-icon-circle">
+            <svg class="status-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          </div>
+          <h2 class="status-title">Nicht verifizierte Domain</h2>
+          <p class="status-desc">
+            Diese Domain ist NICHT im offiziellen Verzeichnis gelistet.
+          </p>
+
+          <div class="details-box">
+              <p class="detail-label">Aktueller Host</p>
+              <p id="invalid-host" class="detail-value">--</p>
+          </div>
+          
+          <p class="footer-note">
+            Vorsicht geboten. Wenn diese Seite behauptet, eine Regierungsseite zu sein, könnte es sich um Betrug handeln.
+          </p>
+        </div>
+        
+        <!-- Info Box -->
+        <div class="info-box">
+           <svg class="info-box-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+           <p>
+             Diese Erweiterung gleicht die aktuelle Domain mit der Liste "Geheimsache Domains" (Stand Dez. 2025) ab.
+           </p>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <a 
+          href="https://fragdenstaat.de/artikel/exklusiv/2025/12/geheimsache-domains/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
+          Daten bereitgestellt von FragDenStaat 
+          <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </footer>
+    </div>
+    
+    <!-- IMPORTANT: Must NOT be type="module" -->
+    <script src="popup.js"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

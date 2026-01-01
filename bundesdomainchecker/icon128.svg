@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="shield-clip">
+      <path d="M64 124C34 108 14 74 14 40V12L114 12V40C114 74 94 108 64 124Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#shield-clip)">
+    <rect x="0" y="0" width="128" height="49" fill="black"/>
+    <rect x="0" y="49" width="128" height="37" fill="#DD0000"/>
+    <rect x="0" y="86" width="128" height="42" fill="#FFCC00"/>
+  </g>
+</svg>
